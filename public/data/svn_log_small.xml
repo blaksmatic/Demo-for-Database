@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log>
+    <logentry
+            revision="1">
+        <author>yzeng19</author>
+        <date>2016-02-25</date>
+        <paths>
+
+            <path
+                    action="A"
+                    kind="file">/yzeng19/Assignment3.0/index.html
+            </path>
+            <path
+                    action="A"
+                    kind="dir">/yzeng19/Assignment3.0/node_modules
+            </path>
+            <path
+                    kind="file"
+                    action="A">/yzeng19/Assignment3.0/package.json
+            </path>
+            <path
+                    action="A"
+                    kind="dir">/yzeng19/Assignment3.0/public
+            </path>
+            <path
+                    action="A"
+                    kind="dir">/yzeng19/Assignment3.0/source_sass
+            </path>
+        </paths>
+        <msg>delete everything. restart</msg>
+    </logentry>
+    <logentry
+            revision="2">
+        <author>yzeng19</author>
+        <date>2016-02-25</date>
+        <paths>
+            <path
+                    kind="file"
+                    action="A">/yzeng19/Assignment3.0/index.html
+            </path>
+        </paths>
+        <msg>try</msg>
+    </logentry>
+    <logentry
+            revision="3">
+        <author>yzeng19</author>
+        <date>2016-02-25</date>
+        <paths>
+
+            <path
+                    kind="file"
+                    action="A">/yzeng19/Assignment3.0/index.html
+            </path>
+        </paths>
+        <msg>ABFFF</msg>
+    </logentry>
+</log>
