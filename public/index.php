@@ -29,6 +29,7 @@
     $assignment3_info = $parsed_info->get_assignment("Assignment3");
     ?>
 
+
     <script type="text/javascript">
         var assignment1 = <?php echo json_encode($assignment1_info) ?>;
         var assignment1_1 = <?php echo json_encode($assignment1_1_info) ?>;
@@ -248,6 +249,7 @@
     </div>
 </div>
 <div ng-view></div>
+<div></div>
 
 <script src="./js/vendor/jquery.min.js"></script>
 <script src="./js/vendor/what-input.min.js"></script>

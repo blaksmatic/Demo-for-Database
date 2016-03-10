@@ -75,4 +75,5 @@ a {
 /* line 75, ../../sass/screen.scss */
 .small_head {
   font-size: 25px;
+  font-weight: 300;
 }
