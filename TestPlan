@@ -1,0 +1,7 @@
+1. Use the two small files to test the loading/saving
+2. Get into mongoDB's server (in termianl) and check the data's correctness.
+3. Use console.log and assert to check the data
+4. Fileter: when inputing something, check the result if any of the "before" still exist.
+5. Comments: try closing the webpage and reload, see if the comments are still here.
+6. Comments: try different comments and see if there is error in server side.
+7. SQL injection? not in mongoDB.

@@ -33,5 +33,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Assignment3.0 node_modules" level="project" />
+    <orderEntry type="library" name="socket.io-1.4.5" level="application" />
   </component>
 </module>

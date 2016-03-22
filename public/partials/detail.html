@@ -1,0 +1,38 @@
+<div ng-controller="detailController">
+    <div class="row text-center ">
+        <div class="small-centered columns small-6 medium-8 ">
+            <a href="#/detail/{{id - 1}}">
+                <button class="button hvr-round-corners" ng-show="rank != 1">Previous</button>
+            </a>
+            <a href="#/detail/{{id + 1}}">
+                <button class="button hvr-round-corners ">Next</button>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+
+
+        <div class="media-object">
+            <div class="media-object-section">
+                <div class="thumbnail">
+                    <img src={{this_assignment.img}}>
+                </div>
+            </div>
+            <div class="media-object-section">
+                <h4>Name: {{this_assignment.name}}</h4>
+                <h4>Address: {{this_assignment.addr}}</h4>
+                <h4><a href="{{this_assignment.url}}">Homepage {{this_assignment.url}}</a></h4>
+                <h4>Title : {{this_assignment.title}}</h4>
+                <h4><a href="{{this_assignment.email}}">Email : {{this_assignment.email}}</a></h4>
+                <h4>Phone : {{this_assignment.phone}}</h4>
+                <h4>Area : {{this_assignment.area}}</h4>
+            </div>
+        </div>
+
+        <form>
+            <input type="text" name="prof-name" ng-model="attri" placeholder="attribute">
+            <input type="text" name="prof-name" ng-model="value" placeholder="value">
+            <button class="button" ng-click="modify()">MODIFY ATTRIBUTE</button>
+        </form>
+    </div>
+</div>

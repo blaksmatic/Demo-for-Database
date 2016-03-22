@@ -58,7 +58,11 @@ body {
 /* line 61, ../../sass/screen.scss */
 #About {
   margin-top: 10%;
-  margin-bottom: 30%;
+  margin-bottom: 15%;
+}
+
+#nav {
+  margin-bottom: 10%;
 }
 
 /* line 66, ../../sass/screen.scss */
@@ -69,7 +73,7 @@ body {
 /* line 70, ../../sass/screen.scss */
 a {
   font-size: 17px;
-  color: greenyellow;
+  color: lightcyan;
 }
 
 /* line 75, ../../sass/screen.scss */

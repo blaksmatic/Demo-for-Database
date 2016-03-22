@@ -633,11 +633,11 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $app->get('/foo', function () { return (object) array('name' => 'world'); });
 
         $app->view(function (\stdClass $view) {
-            return array('msg' => 'Hello '.$view->name);
+            return array('message' => 'Hello '.$view->name);
         });
 
         $app->view(function (array $view) {
-            return $view['msg'];
+            return $view['message'];
         });
 
         $response = $app->handle(Request::create('/foo'));

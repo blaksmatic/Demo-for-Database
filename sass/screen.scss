@@ -60,7 +60,11 @@ body {
 
 #About {
   margin-top: 10%;
-  margin-bottom: 30%;
+  margin-bottom: 15%;
+}
+
+#nav {
+  margin-bottom: 10%;
 }
 
 .project {
@@ -69,7 +73,7 @@ body {
 
 a {
   font-size: 17px;
-  color: greenyellow;
+  color: green();
 }
 
 .small_head {

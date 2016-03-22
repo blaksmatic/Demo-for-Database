@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{Assignment3.0 node_modules}" />
-    <file url="PROJECT" libraries="{angular, angularjs-DefinitelyTyped, express-DefinitelyTyped, foundation, jquery, node-DefinitelyTyped}" />
+    <file url="PROJECT" libraries="{angular, angularjs-DefinitelyTyped, express-DefinitelyTyped, foundation, jquery, node-DefinitelyTyped, socket.io-1.4.5}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
   </component>
 </project>

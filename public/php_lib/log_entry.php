@@ -9,13 +9,13 @@
 
 /**
  * Class log_entry
- * This class is an entry for a log. A log has a date, a message and a revision number
+ * This class is an entry for a log. A log has a date, a message and a revision_number number
  * It will be appended to assignment, so that one assignment can have multiple log entry.
  */
 class log_entry
 {
     public $date; //the date
-    public $revision_number; //the revision number
+    public $revision_number; //the revision_number number
     public $message; //the message
 
     public function __construct($message, $date, $revision)

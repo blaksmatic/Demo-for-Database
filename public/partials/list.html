@@ -1,0 +1,41 @@
+<div ng-controller="mainController">
+    <div class="row">
+        <div class="columns small-6 text-center" style="margin-bottom:2%; font-size: 17px;"
+             ng-repeat="assign in prof_filter track by $index">
+            <a href="#/detail/{{assign.id}}">
+                {{assign.name}}
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <form novalidate class="small-centered small-12 medium-8">
+            <input type="text" name="prof-name" ng-model="current_prof_name" placeholder="Prof name">
+            <input type="text" name="prof-name" ng-model="current_prof_address" placeholder="address">
+            <input type="text" name="prof-name" ng-model="current_prof_url" placeholder="url">
+            <input type="text" name="prof-name" ng-model="current_prof_area" placeholder="area">
+            <input type="text" name="prof-name" ng-model="current_prof_title" placeholder="title">
+            <input type="text" name="prof-name" ng-model="current_prof_page" placeholder="page">
+            <input type="text" name="prof-name" ng-model="current_prof_phone" placeholder="phone">
+            <input type="text" name="prof-name" ng-model="current_prof_img" placeholder="img">
+            <input type="text" name="prof-name" ng-model="current_prof_email" placeholder="email">
+            <button class="button" ng-click="ADD_PROF()">ADD PROF</button>
+        </form>
+
+    </div>
+    <div class="row">
+        <form novalidate class="small-centered small-12 medium-8">
+            <input type="text" name="prof-name" ng-model="name_to_delete" placeholder="name">
+            <button class="button" ng-click="DELETE()">DELETE PROF</button>
+        </form>
+    </div>
+
+    <div class="row">
+        <form novalidate class="small-centered small-12 medium-8">
+            <input type="text" name="prof-name" ng-model="this_filter" placeholder="name">
+            <button class="button" ng-click="search()">SEARCH PROF</button>
+        </form>
+    </div>
+
+
+</div>

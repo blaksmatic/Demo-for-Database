@@ -46,34 +46,70 @@ class parse_all_info
     public function pre_processing()
     {
 
+        $id = 0;
         $this->svn_list_info = array();
         $this->svn_log_info = array();
         $all_names_array = array(); // an array contains all the names of the attributes. so that we can select logs
         //print_r($this->svn_list_info_json["list"]);
         foreach ($this->svn_list_info_json["list"]["entry"] as $each_entry) {
 
-            //add the size. some does not have a size
-            if (array_key_exists("size", $each_entry))
-                $temp_size = $each_entry["size"];
-            else
-                $temp_size = 0;
+            if (strpos($each_entry["name"], '.idea') === false
+                && strpos($each_entry["name"], '.tex') === false
+                && strpos($each_entry["name"], '.jar') === false
+                && strpos($each_entry["name"], '.eps') === false
+                && strpos($each_entry["name"], 'out/production') === false
+                && strpos($each_entry["name"], '1.2/html') === false
+                && strpos($each_entry["name"], 'vendor/') === false
+                && strpos($each_entry["name"], '.git') === false
+                && array_key_exists("size", $each_entry)
+            ) {
 
-            $new_assignment = new assignment_entry($each_entry["name"], $each_entry["@attributes"]["kind"], $each_entry["commit"]["@attributes"]["revision"], $each_entry["commit"]["date"], $temp_size);
-            $author_name = "/yzeng19/";
-            $all_names_array[] = $author_name . $each_entry["name"];
-            $this->svn_list_info[$each_entry["name"]] = $new_assignment;
+                $temp_size = $each_entry["size"];
+
+                //split the date and use the first part
+                $date = $each_entry["commit"]["date"];
+                $date_pieces = explode("T", $date);
+
+                $new_assignment = new assignment_entry($each_entry["name"], $this->get_kind($each_entry["name"]),
+                    $each_entry["commit"]["@attributes"]["revision_number"], $date_pieces[0], $temp_size, $id);
+                if (strpos($each_entry["name"], "Assignment1.0") !== false) {
+                    $new_assignment->add_genre("Assignment1.0");
+                } elseif (strpos($each_entry["name"], "Assignment1.1") !== false) {
+                    $new_assignment->add_genre("Assignment1.1");
+                } elseif (strpos($each_entry["name"], "Assignment1.2") !== false) {
+                    $new_assignment->add_genre("Assignment1.2");
+                } elseif (strpos($each_entry["name"], "Assignment2.0") !== false) {
+                    $new_assignment->add_genre("Assignment2.0");
+                } elseif (strpos($each_entry["name"], "Assignment2.1") !== false) {
+                    $new_assignment->add_genre("Assignment2.1");
+                } elseif (strpos($each_entry["name"], "Assignment3.0") !== false) {
+                    $new_assignment->add_genre("Assignment3.0");
+                } elseif (strpos($each_entry["name"], "Assignment3.1") !== false) {
+                    $new_assignment->add_genre("Assignment3.1");
+                }
+
+                $new_assignment->add_genre("All");
+
+                $author_name = "/yzeng19/";
+                $id++;
+                $all_names_array[] = $author_name . $each_entry["name"];
+                $this->svn_list_info[$each_entry["name"]] = $new_assignment;
+            }
         }
         // foreach ($all_names_array as $temp)
         //    echo ($temp);
         //print_r($all_names_array);
         //print_r($this->svn_log_info_json["logentry"]);
         foreach ($this->svn_log_info_json["logentry"] as $each_entry) {
-            $temp_message = $each_entry["msg"];
+            $temp_message = $each_entry["message"];
 
-            //TODO: should fix the representation of time
-            //TODO: should generate different file type depending on the name
-            $temp_date = $each_entry["date"];
-            $temp_revision = $each_entry["@attributes"]["revision"];
+            //split the date and use the first part
+            $date = $each_entry["date"];
+            $date_pieces = explode("T", $date);
+
+
+            $temp_date = $date_pieces[0];
+            $temp_revision = $each_entry["@attributes"]["revision_number"];
             $each_entry_paths = $each_entry["paths"];
             $each_entry_paths = $each_entry_paths["path"];
             //print_r($each_entry_paths);
@@ -94,6 +130,32 @@ class parse_all_info
         }
     }
 
+
+    public function get_all_assignment()
+    {
+        $new_assignment_list = array();
+        foreach ($this->svn_list_info as $list) {
+            $new_assignment_list[] = $list;
+        }
+        return $new_assignment_list;
+    }
+
+    public function get_kind($file_name)
+    {
+        if (strpos($file_name, "java") !== false) {
+            return "Java";
+        } elseif (strpos($file_name, "rb") !== false) {
+            return "Ruby";
+        } elseif (strpos($file_name, "png") !== false || strpos($file_name, "jpg") !== false) {
+            return "Picture";
+        } elseif (strpos($file_name, "html") !== false || strpos($file_name, "php") !== false) {
+            return "Web";
+        } elseif (strpos($file_name, "js") !== false || strpos($file_name, "css") !== false) {
+            return "Web Style";
+        } else {
+            return "File";
+        }
+    }
 
     //TODO: add function to decrease the overlapping work of these similar functions.
     /**
